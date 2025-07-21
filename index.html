@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CryptoSign</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #0f0f0f;
+      color: #00fff0;
+    }
+    input {
+      padding: 10px;
+      font-size: 18px;
+      width: 300px;
+      border: 2px solid #00fff0;
+      background: black;
+      color: #00fff0;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+      background: #00fff0;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+    .result {
+      margin-top: 30px;
+      font-size: 30px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🔮 CryptoSign</h1>
+  <p>Enter a coin name to get a signal</p>
+  <input id="coinInput" placeholder="e.g., ETH or BTC" />
+  <button onclick="getSignal()">Get Signal</button>
+  <div class="result" id="resultBox"></div>
+
+  <script>
+    function getSignal() {
+      const coin = document.getElementById("coinInput").value.toLowerCase();
+      const result = document.getElementById("resultBox");
+
+      // Fake signal logic for now
+      const longCoins = ["eth", "btc", "sol"];
+      const shortCoins = ["xrp", "doge", "shib"];
+
+      if (longCoins.includes(coin)) {
+        result.innerHTML = `🟢 ${coin.toUpperCase()} → LONG`;
+      } else if (shortCoins.includes(coin)) {
+        result.innerHTML = `🔴 ${coin.toUpperCase()} → SHORT`;
+      } else {
+        result.innerHTML = `❓ No prediction found for "${coin.toUpperCase()}"`;
+      }
+    }
+  </script>
+</body>
+</html>
